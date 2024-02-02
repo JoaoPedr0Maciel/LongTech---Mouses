@@ -1,15 +1,13 @@
-import Menu from "../menu/Menu";
-
 interface DescriptionProps {
-  descrip: string;
-  image: string;
-  title: string;
+  descrip: string
+  image: string
+  title: string
 }
 
 const Description = ({ title, descrip, image }: DescriptionProps) => {
   return (
     <div className="flex w-[97%] justify-between ">
-      <div className="">
+      <div>
         <h1 className="text-title-color size text-4xl font-bold mx-20 mt-10 max-sm:text-center">
           {title}
         </h1>
@@ -34,7 +32,7 @@ const Description = ({ title, descrip, image }: DescriptionProps) => {
         </h2>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Description;
+export default Description

@@ -1,16 +1,16 @@
-import { useState } from "react";
-import Header from "../Header/Header";
-import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
+import { useState } from 'react'
+import Header from '../Header/Header'
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [surName, setSurName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState('')
+  const [surName, setSurName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
 
     if (
       name.length === 0 ||
@@ -18,39 +18,39 @@ const Contact = () => {
       email.length === 0 ||
       message.length === 0
     ) {
-      alert("Preencha todos os campos");
+      alert('Preencha todos os campos')
     } else {
       const templateParams = {
         from_name: name,
-        surName: surName,
-        email: email,
-        message: message,
-      };
+        surName,
+        email,
+        message,
+      }
       emailjs
         .send(
-          "service_4674avm",
-          "template_pp86dkb",
+          'service_4674avm',
+          'template_pp86dkb',
           templateParams,
-          "33jd_EC5BYT96s4Vb"
+          '33jd_EC5BYT96s4Vb',
         )
         .then((response) => {
-          return console.log(response);
-        });
+          return console.log(response)
+        })
 
       Swal.fire({
-        position: "top",
-        icon: "success",
+        position: 'top',
+        icon: 'success',
         title: "Thanks for contact us, we'll answer your feedback soon!",
         showConfirmButton: false,
         timer: 2000,
-      });
+      })
     }
 
-    setName("");
-    setSurName("");
-    setEmail("");
-    setMessage("");
-  };
+    setName('')
+    setSurName('')
+    setEmail('')
+    setMessage('')
+  }
 
   return (
     <div className="h-full w-full">
@@ -60,6 +60,7 @@ const Contact = () => {
       </h1>
       <div className="mt-[2rem] h-full w-full flex justify-center items-center">
         <form
+          onSubmit={handleSubmit}
           action=""
           className="flex flex-col gap-[.8rem] justify-center items-center font-bold"
         >
@@ -105,14 +106,13 @@ const Contact = () => {
 
           <input
             className="bg-background-card w-[10rem] h-[3rem] rounded-xl font-bold text-white transintion duration-[.4s] hover:bg-title-color hover:text-black cursor-pointer "
-            type="button"
+            type="submit"
             value="Send"
-            onClick={handleSubmit}
           />
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

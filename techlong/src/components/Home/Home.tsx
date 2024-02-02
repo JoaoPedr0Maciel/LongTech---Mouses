@@ -1,7 +1,7 @@
-import G703 from "../../assets/images/g703.svg";
-import Card from "../Card/Card";
-import Description from "../Description/Description";
-import Header from "../Header/Header";
+import G703 from '../../assets/images/g703.svg'
+import Card from '../Card/Card'
+import Description from '../Description/Description'
+import Header from '../Header/Header'
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       />
       <Card />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
