@@ -12,21 +12,14 @@ interface ProductsCardProps {
 const ProductCard = ({ product, price, image, link }: ProductsCardProps) => {
   const [IsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-    console.log("abeerto");
-  }
-
-  function closeModal(e: any) {
-    e.stopPropagation();
-    setIsOpen(false);
-    console.log("fechado");
+  const handleModalState = () => {
+    setIsOpen((prevState) => !prevState) 
   }
 
   return (
     <div>
       <div
-        onClick={openModal}
+        onClick={handleModalState}
         className="relative w-[18.75rem] h-[8.75rem] bg-background-card cursor-pointer transition duration-[.5s] hover:bg-gray-300 rounded-2xl flex justify-center items-center flex-col group"
       >
         {/* Conteúdo do cartão */}
@@ -48,7 +41,7 @@ const ProductCard = ({ product, price, image, link }: ProductsCardProps) => {
       {IsOpen && (
         <Modal
           isOpen={IsOpen}
-          onRequestClose={closeModal}
+          onRequestClose={handleModalState}
           contentLabel="Modal de exemplo"
           overlayClassName="overlay"
           className="content"
@@ -62,25 +55,25 @@ const ProductCard = ({ product, price, image, link }: ProductsCardProps) => {
               <img className="h-[15rem] w-[15rem]" src={image} alt="" />
             </div>
             <div className="flex justify-around w-full max-sm:gap-2">
-              <a
-                onClick={closeModal}
+              <Link
+                onClick={handleModalState}
                 className="bg-background-body w-[100px] max-sm:text-[.8rem] hover:text-red-600 font-bold text-white text-center h-[2.5rem] rounded-md flex justify-center items-center"
-                href="/"
+                to="/"
               >
                 No
-              </a>
+              </Link>
               <Link
                 className="bg-background-body w-[130px] max-sm:w-[120px] max-sm:text-[.8rem] hover:text-title-color font-bold text-white text-center rounded-md flex justify-center items-center"
                 to={link}
               >
                 Description
               </Link>
-              <a
+              <Link
                 className="bg-background-body w-[100px] max-sm:text-[.8rem] hover:text-green-500 font-bold text-white text-center rounded-md flex justify-center items-center"
-                href=""
+                to="/"
               >
                 Yes
-              </a>
+              </Link>
             </div>
           </div>
         </Modal>
