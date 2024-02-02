@@ -61,22 +61,22 @@ const ProductCard = ({ product, price, image, link }: ProductsCardProps) => {
             <div>
               <img className="h-[15rem] w-[15rem]" src={image} alt="" />
             </div>
-            <div className="flex justify-around w-full">
+            <div className="flex justify-around w-full max-sm:gap-2">
               <a
                 onClick={closeModal}
-                className="bg-background-body w-[100px] hover:text-red-600 font-bold text-white text-center h-[3rem] rounded-md flex justify-center items-center"
+                className="bg-background-body w-[100px] max-sm:text-[.8rem] hover:text-red-600 font-bold text-white text-center h-[2.5rem] rounded-md flex justify-center items-center"
                 href="/"
               >
                 No
               </a>
               <Link
-                className="bg-background-body w-[130px] hover:text-title-color font-bold text-white text-center rounded-md flex justify-center items-center"
+                className="bg-background-body w-[130px] max-sm:w-[120px] max-sm:text-[.8rem] hover:text-title-color font-bold text-white text-center rounded-md flex justify-center items-center"
                 to={link}
               >
                 Description
               </Link>
               <a
-                className="bg-background-body w-[100px] hover:text-green-500 font-bold text-white text-center rounded-md flex justify-center items-center"
+                className="bg-background-body w-[100px] max-sm:text-[.8rem] hover:text-green-500 font-bold text-white text-center rounded-md flex justify-center items-center"
                 href=""
               >
                 Yes

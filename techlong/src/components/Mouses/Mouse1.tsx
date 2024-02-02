@@ -21,7 +21,7 @@ const Mouse1 = () => {
           enthusiasts seeking exceptional performance."
         image={G502}
       />
-      <div className="flex justify-center items-center gap-4 mt-[8rem] mb-[2rem] flex-wrap ">
+      <div className="flex justify-center items-center gap-4 mt-[8rem] mb-[2rem] flex-wrap max-sm:gap-20 ">
         <ProductCard
           product="G502"
           price="R$ 299,99"
